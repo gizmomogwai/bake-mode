@@ -1,5 +1,5 @@
 * bake-mode
-Emacs mode for the [[http://esrlabs.github.io/bake/][bake]]-toolkit.
+Poor mans emacs major mode for the [[http://esrlabs.github.io/bake/][bake]]-toolkit.
 
 ** Installation
 Simply put bake-mode.el into your load-path and src_elisp[:exports
@@ -9,3 +9,5 @@ Simply put bake-mode.el into your load-path and src_elisp[:exports
 At the moment the plugin just provides:
 - simple syntax highlighting
 - identing of the current line
+
+See it in [[https://asciinema.org/a/5chewt05oukd2p4ps3w82mx3n][action]] at asciinema.
