@@ -1,2 +1,11 @@
 * bake-mode
 Emacs mode for the [[http://esrlabs.github.io/bake/][bake]]-toolkit.
+
+** Installation
+Simply put bake-mode.el into your load-path and src_elisp[:exports
+"code"]{require 'bake-mode} or use the provided [[https://github.com/dimitri/el-get][el-get]] recipe.
+
+** Features
+At the moment the plugin just provides:
+- simple syntax highlighting
+- identing of the current line
