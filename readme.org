@@ -1,0 +1,2 @@
+* bake-mode
+Emacs mode for the [[http://esrlabs.github.io/bake/][bake]]-toolkit.
