@@ -61,7 +61,7 @@ Emacs adds spaces/tabs according to your settings."
     (";" . 'font-lock-builtin)
     ("[A-Za-z0-9]*" . 'font-lock-variable-name-face)
     )
-  '("^Project.meta$")
+  '("Project.meta")
   (list
    (lambda() (set (make-local-variable 'indent-line-function) #'bake-indent-function))
 
