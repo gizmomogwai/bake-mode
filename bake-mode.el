@@ -34,60 +34,35 @@ Emacs adds spaces/tabs according to your settings."
 
 (define-generic-mode
     'bake-mode
-  '("#")
-  '("Project"
-    "default"
+  '("#"
+    )
+  '(
+    "Project"
     "Description"
     "RequiredBakeVersion"
-    "minimum"
-    "maximum"
     "Responsible"
     "Person"
-    "email"
     "ExecutableConfig"
     "LibraryConfig"
     "CustomConfig"
-    "extends"
     "IncludeDir"
-    "inherit"
-    "true"
-    "false"
-    "inject"
-    "front"
-    "back"
     "Set"
-    "value"
-    "cmd"
-    "env"
     "Dependency"
-    "config"
     "ExternalLibrary"
-    "search"
     "UserLibrary"
     "ExternalLibrarySearchPath"
     "PreSteps"
     "Makefile"
-    "lib"
-    "target"
-    "pathTo"
-    "filter"
-    "validExitCodes"
     "Flags"
     "CommandLine"
-    "on"
-    "off"
-    "filter"
     "PostSteps"
     "StartupSteps"
     "ExitSteps"
     "DefaultToolchain"
-    "outputDir"
-    "eclipseOrder"
     "Compiler"
     "ASM"
     "CPP"
     "C"
-    "command"
     "Define"
     "Archiver"
     "Linker"
@@ -102,14 +77,46 @@ Emacs adds spaces/tabs according to your settings."
     "ArtifactName"
     "LinkerScript"
     "MapFile"
+    )
   '(("=" . 'font-lock-operator)
     ("+" . 'font-lock-operator)
     (";" . 'font-lock-builtin)
+    ;; options
     ("add" . 'font-lock-constant-face)
+    ("back" . 'font-lock-constant-face)
+    ("cmd" . 'font-lock-constant-face)
+    ("command" . 'font-lock-constant-face)
+    ("config" . 'font-lock-constant-face)
+    ("default" . 'font-lock-constant-face)
+    ("eclipseOrder" . 'font-lock-constant-face)
+    ("email" . 'font-lock-constant-face)
+    ("env" . 'font-lock-constant-face)
+    ("extends" . 'font-lock-constant-face)
+    ("false" . 'font-lock-constant-face)
+    ("filter" . 'font-lock-constant-face)
+    ("filter" . 'font-lock-constant-face)
+    ("front" . 'font-lock-constant-face)
+    ("inherit" . 'font-lock-constant-face)
+    ("inject" . 'font-lock-constant-face)
+    ("lib" . 'font-lock-constant-face)
+    ("maximum" . 'font-lock-constant-face)
+    ("minimum" . 'font-lock-constant-face)
+    ("off" . 'font-lock-constant-face)
+    ("on" . 'font-lock-constant-face)
+    ("outputDir" . 'font-lock-constant-face)
+    ("pathTo" . 'font-lock-constant-face)
     ("remove" . 'font-lock-constant-face)
+    ("search" . 'font-lock-constant-face)
+    ("target" . 'font-lock-constant-face)
+    ("true" . 'font-lock-constant-face)
+    ("validExitCodes" . 'font-lock-constant-face)
+    ("value" . 'font-lock-constant-face)
+
+    ;; the rest
     ("[A-Za-z0-9]*" . 'font-lock-variable-name-face)
     )
-  '("Project.meta")
+  '("Project.meta"
+    )
   (list
    (lambda() (set (make-local-variable 'indent-line-function) #'bake-indent-function))
    )
