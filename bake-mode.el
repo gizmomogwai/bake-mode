@@ -4,6 +4,8 @@
 ;; Simple mode for the bake toolkit. (http://esrlabs.github.io/bake/)
 ;;; Code:
 
+(require 's)
+
 (defgroup bake-mode nil
   "Mode for bake's Project.meta files."
   :group 'bake-mode)
@@ -16,6 +18,7 @@ Emacs adds spaces/tabs according to your settings."
   :tag "Indent"
   :safe t)
 
+
 (defun bake-indent-function ()
   "Indent a line for a bake file."
   (interactive)
@@ -23,7 +26,7 @@ Emacs adds spaces/tabs according to your settings."
     (beginning-of-line)
     (let* ((p1 (line-beginning-position))
            (p2 (line-end-position))
-           (l (trim (buffer-substring-no-properties p1 p2)))
+           (l (s-trim (buffer-substring-no-properties p1 p2)))
            (end-of-block (eq l "}"))
            (temporary-indent (car (syntax-ppss)))
            (indent (if (string-match l "}") (1- temporary-indent) temporary-indent)))

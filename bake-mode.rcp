@@ -1,0 +1,11 @@
+(:name bake-mode
+       :description "Emacs mode for the bake toolkit."
+       :type github
+       :pkgname "gizmomogwai/bake-mode"
+       :shallow nil
+       :prepare
+       :features bake-mode
+       :depends s
+       (progn
+         (autoload 'bake-mode "bake-mode" "Major mode for editing bake's Project.meta files." t)
+         (add-to-list 'auto-mode-alist '("Project.meta$" . bake-mode))))
