@@ -1,7 +1,7 @@
 ;;; bake-mode.el --- Mode for bakes Project.meta files.
 ;; Copyright 2016 christian.koestlin@gmail.com
 ;;; Commentary:
-;; Simple mode for the bake toolkit. (http://esrlabs.github.io/bake/)
+;; Simple mode for the bake toolkit.  (http://esrlabs.github.io/bake/)
 ;;; Code:
 
 (require 's)
@@ -18,7 +18,13 @@ Emacs adds spaces/tabs according to your settings."
   :tag "Indent"
   :safe t)
 
-(defun bake-indent-function ()
+(defcustom bake-mode/format-command "bake-format"
+  "Bake-format for formatting."
+  :type 'string
+  :tag "Indent"
+  :safe t)
+
+(defun bake-mode/indent-function ()
   "Indent a line for a bake file."
   (interactive)
   (save-excursion
@@ -118,10 +124,20 @@ Emacs adds spaces/tabs according to your settings."
   '("Project.meta"
     )
   (list
-   (lambda() (set (make-local-variable 'indent-line-function) #'bake-indent-function))
+   (lambda() (set (make-local-variable 'indent-line-function) #'bake-mode/indent-function))
    )
   "A mode for bake's Project.meta files"
   )
+
+(defun bake-mode/format ()
+  "Format current buffer with bake-format."
+  (interactive)
+  (shell-command-on-region
+   (point-min) (point-max)
+   (format "%s - - " (expand-file-name bake-mode/format-command))
+   (current-buffer)
+   t
+   "*bake-mode/Error Buffer*"))
 
 (provide 'bake-mode)
 ;;; bake-mode.el ends here
